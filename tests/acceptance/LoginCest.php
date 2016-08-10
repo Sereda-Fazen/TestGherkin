@@ -1,11 +1,15 @@
 <?php
+
+/**
+ * @group login
+ */
 class LoginCest
 {
-    function loginSuccess(\Page\Login $loginPage) {
-        $loginPage->clickOnSignInOnTheHomePage();
-        $loginPage->iEnterAnd('test_mowdirect@yahoo.co.uk', '123456');
-        $loginPage->iClickOnTheButtonLogin();
-        $loginPage->iShouldSeeMyDashboard();
+    function loginSuccess(\AcceptanceTester $I) {
+        $I->clickOnSignInOnTheHomePage();
+        $I->iEnterAnd('test_mowdirect@yahoo.co.uk', '123456');
+        $I->iClickOnTheButtonLogin();
+        $I->iShouldSeeMyDashboard();
     }
 
 

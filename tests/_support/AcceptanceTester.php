@@ -3,7 +3,7 @@
 class AcceptanceTester extends \Codeception\Actor
 {
     use _generated\AcceptanceTesterActions;
-    
+
     /**
      * @Given Click on Sign in on the home page
      */
@@ -39,27 +39,43 @@ class AcceptanceTester extends \Codeception\Actor
       $this->waitForElement('.dashboard');
       $this->see('My Dashboard','.page-title');
     }
-    
+
 
     /**
-     * @Given I click on logo
+     * @Given I am going to home page
      */
-    public function iClickOnLogo()
+
+    public function iAmGoingHomePage()
     {
         $this->amOnPage('/');
-        $this->waitForElement('//a[@class="logo"]');
-        $this->click('//a[@class="logo"]');
     }
 
     /**
-     * @Then I return to main page
+     * @When I input in search :arg1
      */
-    public function iReturnToMainPage()
+    public function iInputInSearch($arg1)
     {
-        $this->waitForElementNotVisible('.page-title');
-        $this->seeInCurrentUrl('/');
+        $this->fillField('#search',$arg1);
     }
 
+    /**
+     * @When I click on button search
+     */
+    public function iClickOnButtonSearch()
+    {
+
+        $this->click('button.button.search-button');
+    }
+
+    /**
+     * @Then I should see the contain :arg1
+     */
+    public function iShouldSeeTheContain($arg1)
+    {
+
+        $this->waitForElement('.gsc-resultsbox-visible');
+        $this->see($arg1, '.gsc-resultsbox-visible');
+    }
 
 
 
