@@ -7,7 +7,7 @@ class AcceptanceTester extends \Codeception\Actor
     /**
      * @Given Click on Sign in on the home page
      */
-    public function clickOnSignInOnTheHomePage()
+    public function IClickOnSignInOnTheHomePage()
     {
         $this->amOnPage('/');
         $this->click('Sign in', '.fright');
