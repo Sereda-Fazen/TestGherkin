@@ -5,7 +5,7 @@ class AcceptanceTester extends \Codeception\Actor
     use _generated\AcceptanceTesterActions;
 
     /**
-     * @Given Click on Sign in on the home page
+     * @Given I click Sign in on the home page
      */
     public function IClickOnSignInOnTheHomePage()
     {
